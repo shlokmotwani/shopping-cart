@@ -1,3 +1,44 @@
 #root {
   max-width: 1280px;
 }
+
+#app-wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#app-wrapper > nav,
+#app-wrapper > div {
+  border: 1px solid wheat;
+}
+
+#header-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+}
+
+#hdr-cntr-btn-grp{
+  display: flex;
+}
+
+span,
+button {
+  padding: 15px;
+  margin: 0 20px;
+}
+
+#content-wrapper {
+  flex: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#footer-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
