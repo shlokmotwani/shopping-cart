@@ -1,7 +1,9 @@
+import { useState } from "react";
 import "./App.css";
 import { Link, Outlet } from "react-router-dom";
 
 function App() {
+  const [itemsInCart, setItemsInCart] = useState([]);
   return (
     <div id="app-wrapper">
       <nav id="header-wrapper">
@@ -10,10 +12,11 @@ function App() {
           <Link to="/">Home</Link>
           <Link to="products">Shop</Link>
         </div>
-        <Link to="cart">Cart</Link>
+        <Link to="cart">Cart {itemsInCart.length}</Link>
       </nav>
       <div id="content-wrapper">
-        <Outlet />
+        {itemsInCart.length !==0 && <p>Items are in cart</p>}
+        <Outlet context={setItemsInCart}/>
       </div>
       <div id="footer-wrapper">
         <p>Created by shlok.codes</p>

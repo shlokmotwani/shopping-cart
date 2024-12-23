@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import { Card } from "../components/Card";
-import "../styles/product-page.css"
+import "../styles/product-page.css";
+import { useOutletContext } from "react-router-dom";
 
 function ProductPage() {
-  const [dataFetched, setDataFetched] = useState(false);
   const [data, setData] = useState(null);
+  const [dataFetched, setDataFetched] = useState(false);
+  const setItemsInCart = useOutletContext();
+
   useEffect(() => {
     fetch("https://dummyjson.com/products")
       .then((res) => res.json())
@@ -38,12 +41,11 @@ function ProductPage() {
       <h1>This page displays products</h1>
       {!dataFetched && <h1>Data NOT fetched yet</h1>}
 
-
       <div id="cards-wrapper">
-          {dataFetched &&
-            data.map((product, index) => {
-              return <Card key={index} item={product} />;
-            })}
+        {dataFetched &&
+          data.map((product, index) => {
+            return <Card key={index} item={product} handleAdd={setItemsInCart}/>;
+          })}
       </div>
     </div>
   );
