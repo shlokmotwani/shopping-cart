@@ -6,6 +6,7 @@ function Card({ item, handleAdd }) {
   const [addBtnClicked, setAddBtnClicked] = useState(false);
   const [quantity, setQuantity] = useState(0);
 
+
   function handleAddBtnClick() {
     setAddBtnClicked(true);
   }
@@ -16,7 +17,9 @@ function Card({ item, handleAdd }) {
   }
 
   function handleConfirmBtnClick(item) {
-    handleAdd(item);
+    console.log(item.title);
+    handleAdd(item, quantity);
+    setAddBtnClicked(false);
   }
 
   function handleQtyChange(e) {
@@ -34,7 +37,7 @@ function Card({ item, handleAdd }) {
         {addBtnClicked && (
           <>
             <input type="number" value={quantity} onChange={handleQtyChange} />
-            <button onClick={handleConfirmBtnClick}>OK</button>
+            <button onClick={()=>handleConfirmBtnClick(item)}>OK</button>
             <button onClick={handleCancelBtnClick}>Cancel</button>
           </>
         )}

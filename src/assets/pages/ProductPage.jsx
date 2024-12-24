@@ -6,7 +6,14 @@ import { useOutletContext } from "react-router-dom";
 function ProductPage() {
   const [data, setData] = useState(null);
   const [dataFetched, setDataFetched] = useState(false);
-  const setItemsInCart = useOutletContext();
+
+  const [itemsInCart, setItemsInCart] = useOutletContext();
+  console.log(itemsInCart);
+  // const [cart, setCart] = useState(itemsInCart);
+
+  function handleAdd(item, quantity) {
+    setItemsInCart((prev) => [...prev, { item: item, quantity: quantity }]);
+  }
 
   useEffect(() => {
     fetch("https://dummyjson.com/products")
@@ -25,9 +32,9 @@ function ProductPage() {
             },
           ];
         });
-        setDataFetched(true);
         setData(items);
-        return items;
+        setDataFetched(true);
+        // return items;
       });
 
     () => {
@@ -44,7 +51,7 @@ function ProductPage() {
       <div id="cards-wrapper">
         {dataFetched &&
           data.map((product, index) => {
-            return <Card key={index} item={product} handleAdd={setItemsInCart}/>;
+            return <Card key={index} item={product} handleAdd={handleAdd} />;
           })}
       </div>
     </div>
