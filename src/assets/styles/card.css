@@ -6,6 +6,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 70vh;
 }
 
 .qty{
@@ -27,7 +28,7 @@ button{
     margin: 0 10px;
 }
 
-img{
+.card>img{
     width: 80%;
 }
 

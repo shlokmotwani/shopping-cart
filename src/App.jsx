@@ -13,7 +13,7 @@ function App() {
           <Link to="/">Home</Link>
           <Link to="products">Shop</Link>
         </div>
-        <Link to="cart">Cart {itemsInCart.length}</Link>
+        <Link to="cart">Cart ({itemsInCart.length})</Link>
       </nav>
       <div id="content-wrapper">
         <Outlet context={[itemsInCart, setItemsInCart]}/>

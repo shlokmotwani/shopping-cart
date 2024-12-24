@@ -1,0 +1,12 @@
+#cart-page-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#cart-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 85vw;
+}
