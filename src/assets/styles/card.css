@@ -30,3 +30,14 @@ button{
 img{
     width: 80%;
 }
+
+.product-title{
+    font-weight: 800;
+}
+
+.added-text{
+    border: 1px solid white;
+    padding: 5px;
+    margin: 0;
+    font-size: 0.5rem;
+}

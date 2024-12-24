@@ -5,6 +5,7 @@ import { useState } from "react";
 function Card({ item, handleAdd }) {
   const [addBtnClicked, setAddBtnClicked] = useState(false);
   const [quantity, setQuantity] = useState(0);
+  const [isAdded, setIsAdded] = useState(false);
 
 
   function handleAddBtnClick() {
@@ -21,8 +22,9 @@ function Card({ item, handleAdd }) {
     if(quantity == 0){
       return;
     }
-    console.log(item.title);
+    // console.log(item.title);
     handleAdd(item, quantity);
+    setIsAdded(true);
   }
 
   function handleQtyChange(e) {
@@ -32,11 +34,12 @@ function Card({ item, handleAdd }) {
   return (
     <div className="card">
       <img src={item.thumbnailURL} alt="" />
-      <p>{item.title}</p>
+      <p className="product-title">{item.title}</p>
       <span>{item.description}</span>
       <p>Price: ${item.price}</p>
       <div className="qty">
-        {!addBtnClicked && <button onClick={handleAddBtnClick}>Add</button>}
+        {!addBtnClicked && !isAdded && <button onClick={handleAddBtnClick}>Add</button>}
+        {!addBtnClicked && isAdded && <p className="added-text">Added in your cart</p>}
         {addBtnClicked && (
           <>
             <input type="number" value={quantity} onChange={handleQtyChange} />
