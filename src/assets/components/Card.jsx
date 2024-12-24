@@ -31,12 +31,12 @@ function Card({ item, handleAdd }) {
   }
 
   return (
-    <div className="card">
+    <div data-testid="product-card" className="card">
       <img src={item.thumbnailURL} alt="" />
-      <p className="product-title">{item.title}</p>
-      <span>{item.description}</span>
-      <p>Price: ${item.price}</p>
-      <div className="qty">
+      <p data-testid="product-title" className="product-title">{item.title}</p>
+      <span data-testid="product-description" >{item.description}</span>
+      <p data-testid="product-price" >Price: ${item.price}</p>
+      <div data-testid="product-qty" className="qty">
         {!addBtnClicked && !isAdded && <button onClick={handleAddBtnClick}>Add</button>}
         {!addBtnClicked && isAdded && <p className="added-text">Added in your cart</p>}
         {addBtnClicked && (

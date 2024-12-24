@@ -5,7 +5,6 @@ import "../styles/cart-page.css";
 function CartPage() {
   const [itemsInCart] = useOutletContext();
   let total = 0;
-  console.log(itemsInCart);
   if(itemsInCart.length > 0){
     return (
       <div id="cart-page-wrapper">
