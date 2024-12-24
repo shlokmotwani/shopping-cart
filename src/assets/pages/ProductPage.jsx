@@ -45,8 +45,7 @@ function ProductPage() {
 
   return (
     <div>
-      <h1>This page displays products</h1>
-      {!dataFetched && <h1>Data NOT fetched yet</h1>}
+      {!dataFetched && <h1>Loading...</h1>}
 
       <div id="cards-wrapper">
         {dataFetched &&
