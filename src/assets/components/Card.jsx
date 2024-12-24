@@ -17,9 +17,12 @@ function Card({ item, handleAdd }) {
   }
 
   function handleConfirmBtnClick(item) {
+    setAddBtnClicked(false);
+    if(quantity == 0){
+      return;
+    }
     console.log(item.title);
     handleAdd(item, quantity);
-    setAddBtnClicked(false);
   }
 
   function handleQtyChange(e) {
