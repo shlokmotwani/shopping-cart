@@ -1,5 +1,5 @@
 import "../styles/homepage.css";
-import cart from "../../../public/shopping-cart.png";
+import cart from "../../../src/shopping-cart.png";
 
 function HomePage() {
   return (
